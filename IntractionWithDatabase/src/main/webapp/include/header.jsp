@@ -8,12 +8,13 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
 
-    <title><% 
+    <title><%
     if( request.getAttribute("title") == null){
         out.print("Homepage");
     }else{
     	out.print(request.getAttribute("title"));
     }
+    
     %></title>
 
     <!-- Bootstrap core CSS -->
@@ -50,12 +51,12 @@
           </button>
           <a class="navbar-brand" href="${pageContext.request.contextPath}/site?page=home">SOLID.</a>
        
-       </div>
+        </div>
         <div class="navbar-collapse collapse navbar-right">
           <ul class="nav navbar-nav">
-            <li><a href="${pageContext.request.contextPath}/site?page=home">HOME</a></li>
-            <li ><a href="${pageContext.request.contextPath}/operation?page=listusers"">LIST USERS</a></li>
-            <li ><a href="${pageContext.request.contextPath}/operation?page=adduser"">ADD USER</a></li>
+            <li><a href="<%= request.getContextPath()%>/home?page=home">HOME</a></li>
+            <li ><a href="<%= request.getContextPath()%>/home?page=listusers">LIST USERS</a></li>
+            
           </ul>
         </div><!--/.nav-collapse -->
       </div>
