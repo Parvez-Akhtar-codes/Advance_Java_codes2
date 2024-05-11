@@ -12,6 +12,7 @@
 <th>User Id</th>
 <th>User Name</th>
 <th>Email Id</th>
+<th>Operations</th>
 
 </thead>
 <%
@@ -21,6 +22,14 @@ for(User _user : listusers){
 	out.println("<td>"+_user.getUser_id()+"</td>");
 	out.println("<td>"+_user.getUsername()+"</td>");
 	out.println("<td>"+_user.getEmail_id()+"</td>");
+	out.println("<td> <a href="+request.getContextPath()+"/site?page=updateuser&user_id="
+	+_user.getUser_id()+"&username="
+			+_user.getUsername()+"&email_id="
+					+_user.getEmail_id()+">Update</a>");
+	out.println(" | ");
+	out.println("<a href="+request.getContextPath()+"/site?page=deleteuser&user_id="
+			+_user.getUser_id()+">Delete</a></td>");
+	
 	out.println("<tr>");
 }
 

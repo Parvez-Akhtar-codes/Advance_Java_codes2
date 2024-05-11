@@ -32,6 +32,22 @@ public class Site extends HttpServlet {
 			adduser(request, response);
 			break;
 		}
+		
+		case "updateuser" : {
+			updateuser(request , response);
+			break;
+		}
+		case "deleteuser" : {
+			try {
+				new UserModel().deleteUser(Integer.parseInt(request.getParameter("user_id")));
+			} catch (NumberFormatException | ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			listusers(request, response);
+			break;
+		}
+		
 		default:
 			request.setAttribute("title", "Error");
 			request.getRequestDispatcher("error.jsp").forward(request, response);
@@ -55,6 +71,26 @@ public class Site extends HttpServlet {
 			break;
 			
 		 }
+		case "updateuseroperation" : {
+			User updated_user = new User(Integer.parseInt(request.getParameter("user_id")), request.getParameter("username")
+					, request.getParameter("email_id"));
+			try {
+				new UserModel().updateUser(updated_user);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			listusers(request,response);
+			break;
+		}
+		default:
+			request.setAttribute("title", "Error");
+			request.getRequestDispatcher("error.jsp").forward(request, response);
+			break;
+		
 		}
 	}
 	
@@ -75,6 +111,10 @@ public class Site extends HttpServlet {
 	protected void adduser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("title", "Add user");
 		request.getRequestDispatcher("adduser.jsp").forward(request, response);
+	}
+	protected void updateuser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("title", "Update user");
+		request.getRequestDispatcher("updateuser.jsp").forward(request, response);
 	}
 	
 

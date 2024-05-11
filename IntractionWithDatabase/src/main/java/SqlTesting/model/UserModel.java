@@ -52,15 +52,15 @@ public class UserModel {
 	}
 
 
-	public void updateUser(User updatedUser) throws SQLException {
+	public void updateUser(User updatedUser) throws SQLException, ClassNotFoundException {
 		Connection connect = null;
 		PreparedStatement pst = null;
 		
-		connect = pst.getConnection();
+		connect = DatabaseConfig.getConnection();
 		int userid = updatedUser.getUser_id();
 		String username = updatedUser.getUsername();
 		String emailid = updatedUser.getEmail_id();
-		String query = "update users set username = ? , email_id = ? , where user_id = ? ";
+		String query = "update users set username = ? , email_id = ?  where user_id = ? ";
 		pst = connect.prepareStatement(query);
 		pst.setString(1, username);
 		pst.setString(2,emailid);
@@ -78,6 +78,7 @@ public class UserModel {
 		String query = "delete from users where user_id = ? ";
 		statement = connect.prepareStatement(query);
 		statement.setInt(1, user_id);
+		statement.execute();
 		
 	}
 
