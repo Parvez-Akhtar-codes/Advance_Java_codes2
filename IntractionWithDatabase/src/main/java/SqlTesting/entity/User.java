@@ -28,4 +28,9 @@ public class User {
 		this.username = username;
 		this.email_id = email_id;
 	}
+	public User( String username, String email_id) {
+		super();
+		this.username = username;
+		this.email_id = email_id;
+	}
 }

@@ -3,8 +3,11 @@
 <%@ page import="SqlTesting.entity.User" %>
 <h3> List Users </h3>
 
-
-<table border="1">
+<br/>
+<br/>
+<br/>
+<br/>
+   <table border="1">
 <thead>
 <th>User Id</th>
 <th>User Name</th>
@@ -26,4 +29,8 @@ for(User _user : listusers){
 
 
 </table>
+<br/>
+<br/>
+<br/>
+<br/>
 <jsp:include page="include/footer.jsp"/>

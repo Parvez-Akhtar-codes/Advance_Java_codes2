@@ -55,7 +55,8 @@
         <div class="navbar-collapse collapse navbar-right">
           <ul class="nav navbar-nav">
             <li><a href="<%= request.getContextPath()%>/home?page=home">HOME</a></li>
-            <li ><a href="<%= request.getContextPath()%>/home?page=listusers">LIST USERS</a></li>
+            <li ><a href="<%= request.getContextPath()%>/site?page=listusers">LIST USERS</a></li>
+               <li ><a href="<%= request.getContextPath()%>/site?page=adduser">ADD USER</a></li>
             
           </ul>
         </div><!--/.nav-collapse -->
